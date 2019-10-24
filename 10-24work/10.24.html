@@ -19,12 +19,12 @@
 			btn1.onclick = function() {
 				arr2.push(in1.value);
 				in1.value = "";
-				div.innerHTML = '签到的人:'+arr2;
+				div.innerHTML = '签到:'+arr2;
 			}
 			btn2.onclick = function() {
-				var arr3 = new RegExp(arr2.join('|'),"ig");
+				var arr3 = new RegExp(arr2.join('|'),"i");
 				var arr4 = arr.replace(arr3,"");
-				div.innerHTML = '未签到人:' + arr4;
+				div.innerHTML = '未签到:' + arr4;
 			}
 		</script>
 	</body>
