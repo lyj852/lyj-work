@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="div"></div>
+		<input type="text" id="in1" />
+		<button id="btn1">签到</button>
+		<button id="btn2">未签到</button>
+		<script>
+			var div = document.getElementById('div');
+			var in1 = document.getElementById('in1');
+			var btn1 = document.getElementById('btn1');
+			var btn2 = document.getElementById('btn2');
+			var arr = "刘一董二李三赵四王五陈六";
+			var arr2 = [];
+			btn1.onclick = function() {
+				arr2.push(in1.value);
+				in1.value = "";
+				div.innerHTML = '签到的人:'+arr2;
+			}
+			btn2.onclick = function() {
+				var arr3 = new RegExp(arr2.join('|'),"ig");
+				var arr4 = arr.replace(arr3,"");
+				div.innerHTML = '未签到人:' + arr4;
+			}
+		</script>
+	</body>
+</html>
