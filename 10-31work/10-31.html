@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery.min.js">	
+			</script>
+			<style type="text/css">
+				*{
+					margin: 0;
+					padding: 0;
+				}
+				table{
+					border: 1px solid  black;
+					width: 800px;
+					height: 200px;
+				}
+				td{
+					height: 40px;
+					width: 158px;
+					border: 1px solid  black;
+				}
+				input{
+					display: block;
+					width: 40px;
+					height: 35px;
+				}
+				span{
+					font-size: 25px;
+				}
+			</style>
+	</head>
+	<body>
+		<table>
+			<tr>
+				<td>
+					<input type="checkbox" id="commodit" />
+				</td>
+				<td>
+					<span>华为mate20</span>
+				</td>
+				<td>
+					<input type="text" value="1" id="number" placeholder="数量" />
+				</td>
+				<td>
+					<span>
+						单价
+						<p id="price">2888</p>
+					</span>
+				</td>
+				<td>
+					<span>
+						合计:
+					<p id="amount"></p>
+					</span>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="checkbox"  id="commodit1"/>
+				</td>
+				<td>
+					<span>小米8尊享版</span>
+				</td>
+				<td>
+				    <input type="text" value="1"  id="number1" placeholder="数量"/>
+				</td>
+				<td>
+					<span>
+						单价
+						<p id="price1">2888</p>
+					</span>
+				</td>
+				<td>
+					<span>
+						合计:
+					<p id="amount1"></p>
+					</span>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<span>
+					     商品共:
+						<p id="num">0</p>
+					</span>
+				</td>
+				<td>
+					<span>
+						合计:
+						<p id="amount3">0</p>
+					</span>
+				</td>
+			</tr>			
+		</table>
+		<script>
+
+        $('#number,#commodit').change(function(){
+            if($('#commodit').is(':checked') == true){
+                $('#amount').html($('#number').val()*$('#price').html());
+            }else{
+                $('#amount').html('')
+            }            
+        })      
+        $('#number1,#commodit1').change(function(){
+            if($('#commodit1').is(':checked') == true){
+                $('#amount1').html($('#number1').val()*$('#price1').html());
+            }else{
+                $('#amount1').html('')
+            }
+        })
+        $('#commodit,#commodit1,#number,#number1').change(function(){
+            if($('#commodit').is(':checked') == true && $('#commodit1').is(':checked') == true){
+                $('#num').html(parseInt($('#number').val())+parseInt($('#number1').val()))
+                $('#amount3').html(parseInt($('#amount').html())+parseInt($('#amount1').html()))
+            }else if($('#commodit').is(':checked') == true){
+                $('#num').html(parseInt($('#number').val()))
+                $('#amount3').html(parseInt($('#amount').html()))
+            }else if($('#commodit1').is(':checked') == true){
+                $('#num').html(parseInt($('#number1').val()))
+                $('#amount3').html(parseInt($('#amount1').html()))
+            }else{
+                $('#num').html('0')
+                $('#amount3').html('0')
+            }
+        })
+		</script>
+	</body>
+</html>
